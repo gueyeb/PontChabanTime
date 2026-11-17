@@ -1,10 +1,170 @@
 /*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
+ * With Propshaft, assets are served efficiently without preprocessing steps.
  */
+
+:root {
+  --color-bg: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-text: #1b2733;
+  --color-muted: #5b6b7a;
+  --color-border: #dde3ea;
+  --color-accent: #0b5f82;
+  --color-accent-contrast: #ffffff;
+  --color-warning-bg: #fdf0e3;
+  --color-warning-text: #7a4a16;
+  --color-warning-border: #f0cfa0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #10161c;
+    --color-surface: #182330;
+    --color-text: #e7edf3;
+    --color-muted: #9fb0bf;
+    --color-border: #2a3a49;
+    --color-accent: #4fb3d9;
+    --color-accent-contrast: #0b2430;
+    --color-warning-bg: #2e2415;
+    --color-warning-text: #f0c98a;
+    --color-warning-border: #5a4420;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.page-header h1 {
+  font-size: 1.6rem;
+  margin: 0 0 4px;
+}
+
+.subtitle {
+  color: var(--color-muted);
+  margin: 0 0 24px;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.card--warning {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+  border-color: var(--color-warning-border);
+}
+
+.card--next {
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  border: none;
+}
+
+.card-label {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+.next-day {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.next-time {
+  margin: 4px 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.duration {
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.next-vessel {
+  margin: 0;
+  font-size: 1rem;
+}
+
+h2 {
+  font-size: 1.1rem;
+  margin: 0 0 12px;
+}
+
+.schedule {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.schedule th,
+.schedule td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.9rem;
+}
+
+.schedule th {
+  color: var(--color-muted);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.schedule tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.page-footer {
+  margin-top: 32px;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+
+.page-footer a {
+  color: var(--color-accent);
+}
+
+.schedule-wrap {
+  overflow-x: auto;
+}
+
+@media (max-width: 420px) {
+  .next-time {
+    font-size: 1.6rem;
+  }
+
+  .schedule th,
+  .schedule td {
+    padding: 8px;
+    font-size: 0.82rem;
+  }
+}
