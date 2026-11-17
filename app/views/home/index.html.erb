@@ -1,0 +1,32 @@
+<h1>Pont Jacques-Chaban-Delmas &mdash; levées à venir</h1>
+
+<p>
+  Horaires des prochaines levées du pont, pendant lesquelles la circulation
+  est coupée pour laisser passer les bateaux.
+  (Source : <a href="https://opendata.bordeaux-metropole.fr/explore/dataset/previsions_pont_chaban/" target="_blank" rel="noopener">données ouvertes de Bordeaux Métropole</a>)
+</p>
+
+<% if @upcoming_lifts.empty? %>
+  <p>Aucune levée programmée trouvée pour le moment.</p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Fermeture</th>
+        <th>Réouverture</th>
+        <th>Navire</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @upcoming_lifts.each do |lift| %>
+        <tr>
+          <td><%= lift.date.strftime("%a %-d %b %Y") %></td>
+          <td><%= lift.closes_at.strftime("%H:%M") %></td>
+          <td><%= lift.reopens_at.strftime("%H:%M") %></td>
+          <td><%= lift.vessel %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

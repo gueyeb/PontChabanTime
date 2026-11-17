@@ -1,7 +1,14 @@
 # PontChabanTime
 
-A Ruby on Rails application. The project is currently a fresh Rails skeleton — no
-application-specific models, controllers, or views have been written yet.
+Shows upcoming lift times for the [Pont Jacques-Chaban-Delmas](https://en.wikipedia.org/wiki/Pont_Jacques-Chaban-Delmas)
+in Bordeaux, France. The bridge's central span lifts to let tall ships pass
+underneath on the Garonne; this app surfaces when that's scheduled to
+happen next, so you know when the road will be closed.
+
+Data comes live from Bordeaux Métropole's open data portal
+([`previsions_pont_chaban`](https://opendata.bordeaux-metropole.fr/explore/dataset/previsions_pont_chaban/))
+— nothing is stored in this app's own database, just fetched and cached
+briefly (see `app/models/bridge_lift.rb`).
 
 ## Tech stack
 
